@@ -1,31 +1,16 @@
-# Node
+# Node dependencies
 node_modules/
-.npm/
+
+# Environment variables
+.env
 
 # Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+npm-debug.log
+yarn-error.log
 
-# Env
-.env
-.env.*
-client/.env
-client/.env.*
-
-# Builds
-client/dist/
-client/.vite/
-client/.cache/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
+# Editor settings
 .vscode/
 .idea/
 
-# Misc
-*.local
+# System files
+.DS_Store
