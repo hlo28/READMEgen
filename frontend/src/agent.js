@@ -4,7 +4,7 @@ const ai = new GoogleGenAI({
   apiKey: import.meta.env.VITE_APIKEY,
 });
 
-// ---- GitHub API Helper ----
+
 const GITHUB_TOKEN = import.meta.env.VITE_GHTOKEN;
 
 async function ghFetch(url) {
@@ -27,17 +27,16 @@ async function fetchRepoData({ repoUrl }) {
   const owner = match[1];
   const repo = match[2];
 
-  // 1. Repo metadata
+
   const repoRes = await ghFetch(
     `https://api.github.com/repos/${owner}/${repo}`
   );
 
-  // 2. Languages
+
   const langsRes = await ghFetch(
     `https://api.github.com/repos/${owner}/${repo}/languages`
   );
 
-  // 3. Project structure
   let projectStructure = [];
 
   async function getStructure(owner, repo, path = "", prefix = "") {
@@ -154,7 +153,7 @@ ${license}
 `;
 }
 
-// ---- JSON sanitizer ----
+
 function safeJsonParse(raw) {
   try {
     let text = raw.trim();
@@ -171,7 +170,7 @@ function safeJsonParse(raw) {
   }
 }
 
-// ---- main ----
+
 export async function runAgent(repoUrl) {
   let metadata;
   try {
