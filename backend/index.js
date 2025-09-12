@@ -5,12 +5,12 @@ const { Octokit } = require("@octokit/rest");
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { z } = require("zod");
 
-// --- Initialize Clients ---
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Legacy static UI disabled; React app runs separately on Vite dev server
+
 
 const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
@@ -29,7 +29,7 @@ const BodySchema = z.object({
     }),
 });
 
-// --- API Endpoint ---
+
 app.post("/generate", async (req, res) => {
   try {
     const parse = BodySchema.safeParse(req.body);
@@ -47,7 +47,7 @@ app.post("/generate", async (req, res) => {
 
     const { data: repoInfo } = await octokit.repos.get({ owner, repo });
 
-    // Helpers
+   
     const safeGetContent = async (path) => {
       try {
         const { data } = await octokit.repos.getContent({ owner, repo, path });
@@ -57,7 +57,7 @@ app.post("/generate", async (req, res) => {
       }
     };
 
-    // Fetch tree, languages, license file
+
     const [{ data: tree }, { data: languagesMap }, licenseContent] =
       await Promise.all([
         octokit.git.getTree({
@@ -89,7 +89,7 @@ app.post("/generate", async (req, res) => {
       topics: (await octokit.repos.getAllTopics({ owner, repo })).data.names,
     };
 
-    // Ask AI to produce the full README in Markdown
+
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash-latest",
     });
