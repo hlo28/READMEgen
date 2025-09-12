@@ -1,0 +1,9 @@
+body {
+  background-color: #111827;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 0
+  );
+  background-size: 2rem 2rem;
+}
