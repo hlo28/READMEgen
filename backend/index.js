@@ -106,12 +106,10 @@ app.post("/generate", async (req, res) => {
   } catch (error) {
     console.error("Error:", error);
     if (error.message.includes("503") || error.message.includes("overloaded")) {
-      return res
-        .status(503)
-        .json({
-          error:
-            "The AI model is temporarily overloaded. Please try again in a moment.",
-        });
+      return res.status(503).json({
+        error:
+          "The AI model is temporarily overloaded. Please try again in a moment.",
+      });
     }
     res
       .status(500)
