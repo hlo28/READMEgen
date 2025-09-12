@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0b0b0f] text-gray-100">
-      {/* Accent blobs removed to prevent oversized circles */}
+      
 
       <header className="relative z-10 max-w-6xl mx-auto px-6 pt-10 text-center">
         <h1 className="text-4xl sm:text-5xl font-black tracking-tight">
@@ -65,7 +65,7 @@ function App() {
           {/* Input row */}
           <div className="p-6 border-b border-white/10">
             <label className="block text-sm text-gray-300 mb-2">
-              GitHub URL
+              GitHub Repository URL
             </label>
             <div className="flex flex-col sm:flex-row gap-3 readme-studio-input-row">
               <input
