@@ -41,7 +41,7 @@
   color: #888;
 }
 
-/* Fallback theme in case Tailwind utilities fail to apply */
+
 .readme-studio-wrapper {
   margin: 0 auto;
   padding: 24px;
