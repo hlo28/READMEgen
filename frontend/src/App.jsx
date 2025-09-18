@@ -65,7 +65,7 @@ function App() {
           {/* Input row */}
           <div className="p-6 border-b border-white/10">
             <label className="block text-sm text-gray-300 mb-2">
-              GitHub Repository URL
+              GitHub URL
             </label>
             <div className="flex flex-col sm:flex-row gap-3 readme-studio-input-row">
               <input
